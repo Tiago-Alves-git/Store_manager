@@ -1,13 +1,19 @@
 const express = require('express');
+const controller = require('./controllers/index');
 
 const app = express();
+const errorHandler = require('./middleware/errorHandler');
 
-// não remova esse endpoint, é para o avaliador funcionar
+
+
 app.get('/', (_request, response) => {
   response.send();
 });
 
-// não remova essa exportação, é para o avaliador funcionar
-// você pode registrar suas rotas normalmente, como o exemplo acima
-// você deve usar o arquivo index.js para executar sua aplicação 
+app.get('/products/', controller.findAllProducts);
+
+app.get('/products/:id', controller.findProductById);
+
+
+app.use(errorHandler);
 module.exports = app;
