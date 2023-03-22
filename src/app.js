@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('./controllers/index');
+const controller = require('./controllers/productsController');
 
 const app = express();
 const errorHandler = require('./middleware/errorHandler');

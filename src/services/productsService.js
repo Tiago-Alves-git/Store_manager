@@ -1,4 +1,4 @@
-const model = require('../models/index');
+const model = require('../models/productsModel');
 
 const httpErrGen = (status, message) => ({ status, message })
 
