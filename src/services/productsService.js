@@ -9,14 +9,23 @@ const findAllProducts = async () => {
 
 const findProductById = async (id) => {
   const result = await model.findProductById(id);
-  console.log(result);
   if (!result || result.length <= 0) {
     throw httpErrGen(404, 'Product not found')
    }
   return result
 };
 
+const createProducts = async (name) => {
+  const result = await model.createProducts(name);
+  console.log(result);
+  // if (!result || result.length <= 0) {
+  //   throw httpErrGen(404, 'Product not found')
+  // }
+  return result
+};
+
 module.exports = {
   findAllProducts,
   findProductById,
+  createProducts,
 }

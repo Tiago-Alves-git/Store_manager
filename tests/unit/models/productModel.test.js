@@ -31,7 +31,7 @@ describe('Teste de unidade do productsModel', function () {
       .resolves(initialDataBase[0])
 
     //act
-    const result = await productsService.findProductById(1);
+    const result = await productsModel.findProductById(1);
     expect(result).to.be.deep.equal(initialDataBase[0]);
   });
 
