@@ -1,18 +1,18 @@
 const model = require('../models/productsModel');
 
-const httpErrGen = (status, message) => ({ status, message })
+const httpErrGen = (status, message) => ({ status, message });
 
 const findAllProducts = async () => {
   const result = await model.findAllProducts();
-  return result
+  return result;
 };
 
 const findProductById = async (id) => {
   const result = await model.findProductById(id);
   if (!result || result.length <= 0) {
-    throw httpErrGen(404, 'Product not found')
+    throw httpErrGen(404, 'Product not found');
    }
-  return result
+  return result;
 };
 
 const createProducts = async (name) => {
@@ -21,11 +21,11 @@ const createProducts = async (name) => {
   // if (!result || result.length <= 0) {
   //   throw httpErrGen(404, 'Product not found')
   // }
-  return result
+  return result;
 };
 
 module.exports = {
   findAllProducts,
   findProductById,
   createProducts,
-}
+};
