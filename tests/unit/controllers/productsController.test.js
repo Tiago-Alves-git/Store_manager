@@ -49,6 +49,9 @@ describe('Teste de unidade do productsController', function () {
     expect(res.json).to.have.been.calledWith(initialDataBase[0]);
   });
 
+  it('Deve retornar o produto cadastrado', async function () {
+
+  });
   afterEach(function () {
     sinon.restore();
   });

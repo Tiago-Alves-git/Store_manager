@@ -17,7 +17,11 @@ const failedSearch = {
   statusCode: 404,
   message: 'Product not found'
 }
+
+const newProduct = { "name": "ProdutoO" };
+
 module.exports = {
   initialDataBase,
   failedSearch,
-}
+  newProduct,
+};
