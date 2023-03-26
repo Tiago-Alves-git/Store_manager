@@ -7,6 +7,7 @@ const app = express();
 app.use(json());
 const errorHandler = require('./middleware/errorHandler');
 const { validationProductName } = require('./middleware/productsMiddleware');
+const { validateInputs, validateId } = require('./middleware/salesMiddleware');
 
 app.get('/', (_request, response) => {
   response.send();
@@ -18,7 +19,7 @@ app.get('/products/:id', productsController.findProductById);
 
 app.post('/products', validationProductName, productsController.createProducts);
 
-app.post('/sales', salesController.createSales);
+app.post('/sales', validateInputs, validateId, salesController.createSales);
 
 app.use(errorHandler);
 module.exports = app;
