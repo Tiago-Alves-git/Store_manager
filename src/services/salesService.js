@@ -1,4 +1,4 @@
-const salesModel = require('../models/salesModel')
+const salesModel = require('../models/salesModel');
 
 const createSales = async () => {
   await salesModel;
@@ -6,4 +6,4 @@ const createSales = async () => {
 
 module.exports = {
   createSales,
-}
+};
