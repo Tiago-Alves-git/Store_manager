@@ -44,7 +44,12 @@ describe('Teste de unidade do productsController', function () {
       .resolves(initialDataBase[0])
 
     //act
-    await productsController.findProductById(req, res);
+    try {
+      await productsController.findProductById(req, res);
+    } catch (error) {
+      expect(error.message).to.be.deep.equal('Product not found');
+    }
+
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(initialDataBase[0]);
   });

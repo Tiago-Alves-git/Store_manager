@@ -1,5 +1,6 @@
 const { initialDataBase } = require('../../mocks/productsMock');
 const productsService = require('../../../src/services/productsService');
+const productsModel = require('../../../src/models/productsModel');
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
@@ -11,23 +12,22 @@ describe('Teste de unidade do productsService', function () {
   describe('Listando os produtos', function () {
     it('Deve retornar o status 200 e a lista com os produtos', async function () {
       // arrange
-      const dataBase = initialDataBase;
       sinon
-        .stub(productsService, 'findAllProducts')
+        .stub(productsModel, 'findAllProducts')
         .resolves(initialDataBase);
 
       // act
       const result = await productsService.findAllProducts();
 
       // assert
-      expect(result).to.be.deep.equal(dataBase);
+      expect(result).to.be.deep.equal(initialDataBase);
     });
   });
 
   it('Deve retornar o status 200 e a lista com os produtos por id', async function () {
     //arrange
     sinon
-      .stub(productsService, 'findProductById')
+      .stub(productsModel, 'findProductById')
       .resolves(initialDataBase[0])
 
     //act

@@ -17,10 +17,9 @@ const findProductById = async (id) => {
 
 const createProducts = async (name) => {
   const result = await model.createProducts(name);
-  console.log(result);
-  // if (!result || result.length <= 0) {
-  //   throw httpErrGen(404, 'Product not found')
-  // }
+  if (!result || result.length <= 0) {
+    throw httpErrGen(404, 'Product not found')
+  }
   return result;
 };
 

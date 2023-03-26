@@ -1,6 +1,7 @@
 const { json } = require('body-parser');
 const express = require('express');
-const controller = require('./controllers/productsController');
+const productsController = require('./controllers/productsController');
+const salesController = require('./controllers/salesController');
 
 const app = express();
 app.use(json());
@@ -11,11 +12,13 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
-app.get('/products/', controller.findAllProducts);
+app.get('/products/', productsController.findAllProducts);
 
-app.get('/products/:id', controller.findProductById);
+app.get('/products/:id', productsController.findProductById);
 
-app.post('/products', validationProductName, controller.createProducts);
+app.post('/products', validationProductName, productsController.createProducts);
+
+app.post('/sales', salesController.createSales);
 
 app.use(errorHandler);
 module.exports = app;
