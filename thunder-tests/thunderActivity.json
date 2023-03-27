@@ -37,16 +37,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3001/sales",
-    "url": "localhost:3001/sales",
+    "url": "localhost:3001/products/1",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-26T16:17:57.479Z",
-    "modified": "2023-03-26T17:48:25.591Z",
+    "modified": "2023-03-27T22:17:54.844Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 2\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 4\n  }\n]",
+      "raw": "{ \"name\": \"Martelo de Odeen\" }",
       "form": []
     },
     "tests": []

@@ -23,8 +23,22 @@ const createProducts = async (name) => {
   return result;
 };
 
+const updateById = async (id, name) => {
+  const teste = await model.findProductById(id);
+  if (!teste || teste.length <= 0) {
+    throw httpErrGen(404, 'Product not found');
+  }
+  const result = await model.updateById(id, name);
+  if (Number(result) === 1) {
+    const updatedProduct = await findProductById(id);
+    return updatedProduct;
+  }
+  throw httpErrGen(404, 'Product not changed');
+ };
+
 module.exports = {
   findAllProducts,
   findProductById,
   createProducts,
+  updateById,
 };

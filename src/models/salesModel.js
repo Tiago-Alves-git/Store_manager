@@ -34,7 +34,6 @@ const findSalesById = async (id) => {
   WHERE sales_products.sale_id = ?
   ORDER BY sales_products.product_id`;
   const [result] = await connection.execute(query, [id]);
-  console.log(camelize(result));
   return camelize(result);
 };
 
