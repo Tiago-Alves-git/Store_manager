@@ -1,4 +1,4 @@
-const { initialDataBase } = require('../../mocks/productsMock');
+const { initialDataBase, newProduct } = require('../../mocks/productsMock');
 const productsService = require('../../../src/services/productsService');
 const productsModel = require('../../../src/models/productsModel');
 const chai = require('chai');
@@ -33,6 +33,17 @@ describe('Teste de unidade do productsService', function () {
     //act
     const result = await productsService.findProductById(1);
     expect(result).to.be.deep.equal(initialDataBase[0]);
+  });
+
+  it('Deve retornar o status 200 e o novo produto criado', async function () {
+    //arrange
+    sinon
+      .stub(productsModel, 'createProducts')
+      .resolves(newProduct)
+
+    //act
+    const result = await productsService.createProducts(newProduct);
+    expect(result).to.be.deep.equal(newProduct);
   });
 
   afterEach(function () {

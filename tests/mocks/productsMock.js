@@ -18,7 +18,10 @@ const failedSearch = {
   message: 'Product not found'
 }
 
-const newProduct = { "name": "ProdutoO" };
+const newProduct = {
+  "id": 10,
+  "name": "ProdutoO"
+};
 
 module.exports = {
   initialDataBase,

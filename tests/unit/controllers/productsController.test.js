@@ -4,6 +4,7 @@ const productsController = require('../../../src/controllers/productsController'
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
+const errorHandler = require('../../../src/middleware/errorHandler');
 
 const { expect } = chai;
 chai.use(sinonChai);
@@ -57,6 +58,7 @@ describe('Teste de unidade do productsController', function () {
   it('Deve retornar o produto cadastrado', async function () {
 
   });
+
   afterEach(function () {
     sinon.restore();
   });

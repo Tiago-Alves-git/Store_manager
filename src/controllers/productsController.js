@@ -3,7 +3,6 @@ const service = require('../services/productsService');
 const findAllProducts = async (_req, res, next) => {
   try {
     const result = await service.findAllProducts();
-    console.log(result);
     return res.status(200).json(result);
   } catch (error) {
     next(error);

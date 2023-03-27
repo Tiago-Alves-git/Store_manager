@@ -1,4 +1,5 @@
 const productsModel = require('../models/productsModel');
+const { findSalesById } = require('../models/salesModel');
 
 const validateInputs = async (req, res, next) => {
   const array = req.body;
@@ -28,7 +29,18 @@ const validateId = async (req, res, next) => {
   }
   next();
 };
+
+const validateSales = async (req, res, next) => {
+  const { id } = req.params;
+  const result = await findSalesById(id);
+  if (!result || result.length <= 0) {
+    return res.status(404).json({ message: 'Sale not found' });
+  }
+  next();
+};
+
 module.exports = {
   validateInputs,
   validateId,
+  validateSales,
 };
