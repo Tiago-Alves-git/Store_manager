@@ -1,10 +1,10 @@
 const { initialDataBase, failedSearch, newProduct, updateById } = require('../../mocks/productsMock');
-const productsService = require('../../../src/services/productsService');
-const productsController = require('../../../src/controllers/productsController');
+const salesService = require('../../../src/services/salesService');
+const salesController = require('../../../src/controllers/productsController');
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const errorHandler = require('../../../src/middleware/errorHandler');
+// const errorHandler = require('../../../src/middleware/errorHandler');
 
 const { expect } = chai;
 chai.use(sinonChai);
@@ -83,10 +83,10 @@ describe('Teste de unidade do productsController', function () {
     //assert
     const res = {};
     const req = {
-      body:  {
+      body: {
         "name": "Martelo do Ussop"
       },
-      params: { id: 1,}
+      params: { id: 1, }
     };
 
     res.status = sinon.stub().returns(res);

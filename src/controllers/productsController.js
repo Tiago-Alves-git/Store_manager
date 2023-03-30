@@ -38,11 +38,23 @@ const updateById = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
- };
+};
+
+const deleteProducts = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const result = await service.deleteProducts(id);
+    return res.status(204).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports = {
   findAllProducts,
   findProductById,
   createProducts,
+  deleteProducts,
   updateById,
 };

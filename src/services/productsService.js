@@ -34,11 +34,21 @@ const updateById = async (id, name) => {
     return updatedProduct;
   }
   throw httpErrGen(404, 'Product not changed');
- };
+};
+
+const deleteProducts = async (id) => {
+  const validateId = await model.findProductById(id);
+  console.log(validateId);
+  if (!validateId || validateId.length <= 0) {
+    throw httpErrGen(404, 'Product not found');
+  }
+  await model.deleteProducts(id);
+};
 
 module.exports = {
   findAllProducts,
   findProductById,
   createProducts,
+  deleteProducts,
   updateById,
 };

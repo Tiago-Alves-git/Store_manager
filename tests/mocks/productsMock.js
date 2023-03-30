@@ -19,12 +19,19 @@ const failedSearch = {
 }
 
 const newProduct = {
-  "id": 10,
-  "name": "ProdutoO"
+  "id": 6,
+  "name": "ProdutoDeTestes"
 };
+
+const updateById = {
+  "id": 1,
+  "name": "Martelo do Ussop"
+};
+
 
 module.exports = {
   initialDataBase,
   failedSearch,
   newProduct,
+  updateById,
 };

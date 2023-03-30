@@ -5,11 +5,11 @@ const connection = require('./connection');
 // SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 
 const createSales = async (saleId, productId, quantity) => {
-  const [{ insertId }] = await connection.execute(`
+  const [{ affectedRows }] = await connection.execute(`
     INSERT INTO sales_products (sale_id, product_id, quantity)
     VALUES (?, ?, ?);
   `, [saleId, productId, quantity]);
-  return insertId;
+  return affectedRows;
 };
 
 const getDate = async () => {

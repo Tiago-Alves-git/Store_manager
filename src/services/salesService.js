@@ -4,7 +4,8 @@ const createSales = async (body) => {
   const saleId = await salesModel.getDate();
   const result = body.map(({ productId, quantity }) =>
     salesModel.createSales(saleId, productId, quantity));
-  await Promise.all(result);
+  const teste = await Promise.all(result);
+  console.log(teste);
   const itemsSold = body.map(({ productId, quantity }) => ({ productId, quantity }));
   return { id: saleId, itemsSold };
 };
